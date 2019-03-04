@@ -1,0 +1,64 @@
+.side-el-dialog.dialog-fade-enter-active .el-dialog{
+    animation: side-dialog-fade-in 0.3s;
+  }
+  
+  .side-el-dialog.dialog-fade-leave-active .el-dialog{
+    animation: side-dialog-fade-out 0.3s;
+  }
+  //控制弹出窗口靠右
+  .side-el-dialog {
+    //控制弹出动画速度
+  
+    .el-dialog {
+      width: 480px;
+      right: 0;
+      height: 100vh;
+      position: fixed;
+      box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.3);
+      .el-dialog__body {
+        overflow-y: auto;
+        height: calc(~"100vh - 109px");
+      }
+  
+      .el-dialog__footer {
+        padding: 0px;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+  
+      .el-dialog__header {
+        padding: 16px 16px 8px 16px;
+        border-bottom: 1px solid #ebeef5;
+      }
+      //控制弹出窗口动画（方向，显示）
+      @keyframes side-dialog-fade-in {
+        0% {
+          transform: translate3d(100%, 0, 0);
+          opacity: 0;
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+      @keyframes side-dialog-fade-out {
+        0% {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(100%, 0, 0);
+          opacity: 0;
+        }
+      }
+      .dialog-title{
+        width:'90%'
+      }
+      .dialog-footer{
+        background-color:#EBEEF5;
+        height:60px;
+        line-height:60px
+      }
+    }
+  }

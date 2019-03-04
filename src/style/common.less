@@ -1,0 +1,1089 @@
+@import 'variable';
+@import 'dialog-animation';
+@import 'side-dialog-animation';
+
+html {
+  // background: white;
+  /* 默认颜色 65% Black/91% White */
+  color: @c-body;
+  //color: @c-w-body;
+  line-height: 1.5em;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Helvetica Neue, Helvetica, PingFang SC Regular,
+    Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+/* 去掉 table cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ie bug：th 不继承 text-align */
+th {
+  text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset,
+img {
+  border: none;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display: block;
+}
+
+/* 去掉列表前的标识，li 会继承 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素，别让什么都居中 */
+caption,
+th {
+  text-align: left;
+}
+
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+/* 统一上标和下标 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+a {
+  cursor: pointer;
+  color: @c-primary;
+  text-decoration: none;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+  /* for ie6 & ie7 */
+}
+
+.b0 {
+  border: none;
+}
+
+/*文字排版、颜色*/
+.f12 {
+  font-size: 12px !important;
+}
+
+.f13 {
+  font-size: 13px !important;
+}
+
+.f14 {
+  font-size: 14px !important;
+}
+
+.f16 {
+  font-size: 16px !important;
+}
+
+.f18 {
+  font-size: 18px !important;
+}
+
+.f20 {
+  font-size: 20px !important;
+}
+
+.fb {
+  font-weight: bold !important;
+}
+
+.fn {
+  font-weight: normal !important;
+}
+
+.t2 {
+  text-indent: 2em !important;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.red,
+a.red {
+  color: #cc0031;
+}
+
+.darkblue,
+a.darkblue {
+  color: #039;
+}
+
+.gray,
+a.gray {
+  color: #878787;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.c-primary-bg {
+  background-color: @c-primary-bg;
+
+  .el-button--text:focus,
+  .el-button--text:hover {
+    color: @c-primary;
+  }
+}
+
+/* 文字颜色 */
+.c-primary {
+  color: @c-primary;
+}
+
+.c-bt {
+  color: @c-title; //Title - 75% Black (标题用)
+}
+
+.c-b {
+  color: @c-body; //Body - 65% Black (*默认 正文用)
+}
+
+.c-bc {
+  color: @c-caption; //Caption - 43% Black (注释用)
+}
+
+.c-bd {
+  color: @c-disable; //Disable - 25% Black (不可使用时用)
+}
+
+.c-wt {
+  color: @c-w-title; //Title - 97% White (标题用)
+}
+
+.c-w {
+  color: @c-w-body; //Body - 91% White (*默认 正文用)
+}
+
+.c-wc {
+  color: @c-w-caption; //Caption - 57% White (注释用)
+}
+
+.c-wd {
+  color: @c-w-disable; //Disable - 35% White (不可使用时用)
+}
+
+.c-blue {
+  color: #108ee9; //链接默认颜色
+}
+
+.c-success {
+  color: @c-success;
+}
+
+.c-warning {
+  color: @c-warning;
+}
+
+.c-danger {
+  color: @c-danger;
+}
+
+.c-danger:hover,
+.c-danger:focus {
+  color: @c-danger-light;
+}
+
+.c-info {
+  color: @c-info;
+}
+
+.c-bd {
+  color: @c-disable;
+}
+
+.lh150 {
+  line-height: 150%;
+}
+
+.lh180 {
+  line-height: 180%;
+}
+
+.lh200 {
+  line-height: 200%;
+}
+
+.unl {
+  text-decoration: underline;
+}
+
+.no_unl {
+  text-decoration: none;
+}
+
+/*定位*/
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.fl {
+  float: left;
+  display: block;
+}
+
+.fr {
+  float: right;
+  display: block;
+}
+
+.cb {
+  clear: both;
+}
+
+.cl {
+  clear: left;
+}
+
+.cr {
+  clear: right;
+}
+
+.vm {
+  vertical-align: middle;
+}
+
+.pr {
+  position: relative;
+}
+
+.pa {
+  position: absolute;
+}
+
+.pf {
+  position: fixed !important;
+}
+
+.abs-right {
+  position: absolute;
+  right: 0;
+}
+
+.zoom {
+  zoom: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+/*长度高度*/
+.w10 {
+  width: 10px !important;
+}
+
+.w20 {
+  width: 20px !important;
+}
+
+.w50 {
+  width: 50px !important;
+}
+
+.w90 {
+  width: 90px !important;
+}
+
+.w100 {
+  width: 100px !important;
+}
+
+.w120 {
+  width: 120px !important;
+}
+
+.w150 {
+  width: 150px !important;
+}
+
+.w200 {
+  width: 200px !important;
+}
+
+.w250 {
+  width: 250px !important;
+}
+
+.w500 {
+  width: 500px !important;
+}
+
+.w800 {
+  width: 800px !important;
+}
+
+.w {
+  width: 100% !important;
+}
+
+.h10 {
+  height: 30px !important;
+}
+
+.h20 {
+  height: 30px !important;
+}
+
+.h30 {
+  height: 30px !important;
+}
+
+.h50 {
+  height: 50px !important;
+}
+
+.h80 {
+  height: 80px !important;
+}
+
+.h100 {
+  height: 100px !important;
+}
+
+.h200 {
+  height: 200px !important;
+}
+
+.h {
+  height: 100% !important;
+}
+
+/*边距*/
+.m0 {
+  margin: 0 !important;
+}
+
+.m10 {
+  margin: 10px !important;
+}
+
+.m15 {
+  margin: 15px !important;
+}
+
+.m20 {
+  margin: 20px !important;
+}
+
+.m30 {
+  margin: 30px !important;
+}
+
+.m50 {
+  margin: 50px !important;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.mt5 {
+  margin-top: 5px !important;
+}
+
+.mt10 {
+  margin-top: 10px !important;
+}
+
+.mt15 {
+  margin-top: 15px !important;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+
+.mt30 {
+  margin-top: 30px !important;
+}
+
+.mt50 {
+  margin-top: 50px !important;
+}
+
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb5 {
+  margin-bottom: 5px !important;
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
+}
+
+.mb15 {
+  margin-bottom: 15px !important;
+}
+
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
+.mb30 {
+  margin-bottom: 30px !important;
+}
+
+.mb50 {
+  margin-bottom: 50px !important;
+}
+
+.mb100 {
+  margin-bottom: 100px !important;
+}
+
+.ml0 {
+  margin-left: 0 !important;
+}
+
+.ml5 {
+  margin-left: 5px !important;
+}
+
+.ml10 {
+  margin-left: 10px !important;
+}
+
+.ml15 {
+  margin-left: 15px !important;
+}
+
+.ml20 {
+  margin-left: 20px !important;
+}
+
+.ml30 {
+  margin-left: 30px !important;
+}
+
+.ml50 {
+  margin-left: 50px !important;
+}
+
+.ml100 {
+  margin-left: 100px !important;
+}
+
+.mr0 {
+  margin-right: 0 !important;
+}
+
+.mr5 {
+  margin-right: 5px !important;
+}
+
+.mr10 {
+  margin-right: 10px !important;
+}
+
+.mr15 {
+  margin-right: 15px !important;
+}
+
+.mr20 {
+  margin-right: 20px !important;
+}
+
+.mr30 {
+  margin-right: 30px !important;
+}
+
+.mr50 {
+  margin-right: 50px !important;
+}
+
+.mr100 {
+  margin-right: 100px !important;
+}
+
+.p0 {
+  padding: 0 !important;
+}
+
+.p5 {
+  padding: 5px !important;
+}
+
+.p10 {
+  padding: 10px !important;
+}
+
+.p15 {
+  padding: 15px !important;
+}
+
+.p20 {
+  padding: 20px !important;
+}
+
+.p30 {
+  padding: 30px !important;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pt5 {
+  padding-top: 5px !important;
+}
+
+.pt10 {
+  padding-top: 10px !important;
+}
+
+.pt15 {
+  padding-top: 15px !important;
+}
+
+.pt20 {
+  padding-top: 20px !important;
+}
+
+.pt30 {
+  padding-top: 30px !important;
+}
+
+.pt50 {
+  padding-top: 50px !important;
+}
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.pb5 {
+  padding-bottom: 5px !important;
+}
+
+.pb10 {
+  padding-bottom: 10px !important;
+}
+
+.pb15 {
+  padding-bottom: 15px !important;
+}
+
+.pb20 {
+  padding-bottom: 20px !important;
+}
+
+.pb30 {
+  padding-bottom: 30px !important;
+}
+
+.pb50 {
+  padding-bottom: 50px !important;
+}
+
+.pb100 {
+  padding-bottom: 100px !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.pl5 {
+  padding-left: 5px !important;
+}
+
+.pl10 {
+  padding-left: 10px !important;
+}
+
+.pl15 {
+  padding-left: 15px !important;
+}
+
+.pl20 {
+  padding-left: 20px !important;
+}
+
+.pl30 {
+  padding-left: 20px !important;
+}
+
+.pl50 {
+  padding-left: 50px !important;
+}
+
+.pl100 {
+  padding-left: 100px !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pr5 {
+  padding-right: 5px !important;
+}
+
+.pr10 {
+  padding-right: 10px !important;
+}
+
+.pr15 {
+  padding-right: 15px !important;
+}
+
+.pr20 {
+  padding-right: 20px !important;
+}
+
+.pr30 {
+  padding-right: 30px !important;
+}
+
+.pr50 {
+  padding-right: 50px !important;
+}
+
+.pr100 {
+  padding-right: 100px !important;
+}
+
+.ls1 {
+  letter-spacing: 1px;
+}
+
+.ls2 {
+  letter-spacing: 2px;
+}
+
+.ls3 {
+  letter-spacing: 3px;
+}
+
+.ls4 {
+  letter-spacing: 4px;
+}
+
+.ls5 {
+  letter-spacing: 5px;
+}
+
+/* 8倍数 边距 */
+.m8 {
+  margin: 8px !important;
+}
+
+.m16 {
+  margin: 16px !important;
+}
+
+.m24 {
+  margin: 24px !important;
+}
+
+.m32 {
+  margin: 32px !important;
+}
+
+.m40 {
+  margin: 40px !important;
+}
+
+.m48 {
+  margin: 48px !important;
+}
+
+.ml8 {
+  margin-left: 8px !important;
+}
+
+.ml16 {
+  margin-left: 16px !important;
+}
+
+.ml24 {
+  margin-left: 24px !important;
+}
+
+.ml32 {
+  margin-left: 32px !important;
+}
+
+.ml40 {
+  margin-left: 40px !important;
+}
+
+.ml48 {
+  margin-left: 48px !important;
+}
+
+.mt8 {
+  margin-top: 8px !important;
+}
+
+.mt16 {
+  margin-top: 16px !important;
+}
+
+.mt24 {
+  margin-top: 24px !important;
+}
+
+.mt32 {
+  margin-top: 32px !important;
+}
+
+.mt40 {
+  margin-top: 40px !important;
+}
+
+.mt48 {
+  margin-top: 48px !important;
+}
+
+.mr8 {
+  margin-right: 8px !important;
+}
+
+.mr16 {
+  margin-right: 16px !important;
+}
+
+.mr24 {
+  margin-right: 24px !important;
+}
+
+.mr32 {
+  margin-right: 32px !important;
+}
+
+.mr40 {
+  margin-right: 40px !important;
+}
+
+.mr48 {
+  margin-right: 48px !important;
+}
+
+.mb8 {
+  margin-bottom: 8px !important;
+}
+
+.mb16 {
+  margin-bottom: 16px !important;
+}
+
+.mb24 {
+  margin-bottom: 24px !important;
+}
+
+.mb32 {
+  margin-bottom: 32px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.mb48 {
+  margin-bottom: 48px !important;
+}
+
+/* 8倍数 填充 */
+.p8 {
+  padding: 8px !important;
+}
+
+.p16 {
+  padding: 16px !important;
+}
+
+.p24 {
+  padding: 24px !important;
+}
+
+.p32 {
+  padding: 32px !important;
+}
+
+.p40 {
+  padding: 40px !important;
+}
+
+.p48 {
+  padding: 48px !important;
+}
+
+.pl8 {
+  padding-left: 8px !important;
+}
+
+.pl16 {
+  padding-left: 16px !important;
+}
+
+.pl24 {
+  padding-left: 24px !important;
+}
+
+.pl32 {
+  padding-left: 32px !important;
+}
+
+.pl40 {
+  padding-left: 40px !important;
+}
+
+.pl48 {
+  padding-left: 48px !important;
+}
+
+.pt8 {
+  padding-top: 8px !important;
+}
+
+.pt16 {
+  padding-top: 16px !important;
+}
+
+.pt24 {
+  padding-top: 24px !important;
+}
+
+.pt32 {
+  padding-top: 32px !important;
+}
+
+.pt40 {
+  padding-top: 40px !important;
+}
+
+.pt48 {
+  padding-top: 48px !important;
+}
+
+.pr8 {
+  padding-right: 8px !important;
+}
+
+.pr16 {
+  padding-right: 16px !important;
+}
+
+.pr24 {
+  padding-right: 24px !important;
+}
+
+.pr32 {
+  padding-right: 32px !important;
+}
+
+.pr40 {
+  padding-right: 40px !important;
+}
+
+.pr48 {
+  padding-right: 48px !important;
+}
+
+.pb8 {
+  padding-bottom: 8px !important;
+}
+
+.pb16 {
+  padding-bottom: 16px !important;
+}
+
+.pb24 {
+  padding-bottom: 24px !important;
+}
+
+.pb32 {
+  padding-bottom: 32px !important;
+}
+
+.pb40 {
+  padding-bottom: 40px !important;
+}
+
+.pb48 {
+  padding-bottom: 48px !important;
+}
+
+.el-form-item {
+  margin-bottom: 16px;
+}
+
+/*  定义边框  */
+.bdt {
+  border-top: 1px solid @c-border;
+}
+
+.bdb {
+  border-bottom: 1px solid @c-border;
+}
+
+.bdl {
+  border-left: 1px solid @c-border;
+}
+
+.bdr {
+  border-right: 1px solid @c-border;
+}
+
+.bd {
+  border: 1px solid @c-border;
+}
+
+/* 常用样式 */
+.no-select {
+  //禁止文字被选择
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-wrap {
+  //禁止文字溢出或换行
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.disp-i {
+  display: inline;
+}
+
+.disp-ib,
+.inline-block {
+  display: inline-block;
+}
+
+.disp-b {
+  display: block;
+}
+ 
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+}
+  
